@@ -1,0 +1,69 @@
+Submissions number, their USPs and their score (1- RMSLE): (All score values written as XXXX are 0.XXXX)
+
+1. Initial Commit with the hack(316 common titles in the train and test set)
+2. Binning the different Editions into 3 groups   
+3. Using Date Also - 7421
+4. Using Reciprocal of reviews and also the length of synopsis -7428
+5. Using AutoML with the features same as that in 4 - 7432
+6. Using Age  instead of Date - 7485
+7. 6. with AutoML - 7465
+8. Removing Outliers - 7489
+9. 8. with AutoML - 7475
+10. Increasing the number of editions- 7477
+>>>> Average 1_10 - 7479
+11. Average of SVM, XGB, RF finetuned - 7486
+12. Average of XGB, RF finetuned - 7506 (Coz SVM was not performing so well on the data)
+13. RF finetuned - 7481
+14. SVM finetuned - 
+15. Concept of Meta - 7077
+16. Meta using Linear (All 3) - 6927
+17. LR Meta using RF and XGB - 7056
+18. Used Author and Genre Frequency -7452
+19. Reduced editions. Used Both RF and XGB. - 7496
+20. Fastai - 7078 (Neural nets with embedding for tabular data)
+21. 
+22. Synopsis - TfIDF and then TSVD 50 components - 7707
+23. Genre -TfIDF and then TSVD 15 components - 7745
+24. RobustScaler- 7670 - Coz outlier removal was not taken into account
+25. Outlier Removal - 7779 
+26. Synopsis and Genre - spacy doc vectors - 7689 (Still don't know why it didn't work)
+27. Genre - TfIDF , synopsis - spacy without SVD - 7644
+28. Synopsis and Genre - lg spacy doc vectors - 7616
+29. Synopsis and Genre - lg spacy doc vectors Automl - 7653
+30. 23 with Automl - 7783
+31. Outlier Removal AutoML - 7793
+32. Included Title AutoML - 7802
+33. Included Title XGB - 7799
+Ensemble (p) - 25-32 7820
+Ensemble (q) - 29-32 7830
+
+51. Included Months, removed Random Year- XGB - 7802
+52.  Included Months, removed Random Year- SVM- 7840 (SVM r2 score started showing up nice as the dimension of the data increased)
+53. Included Months, removed Random Year- AutoML - 7789
+54.  Included Months, removed Random Year- RF- 7777
+
+Ensemble(x) - Ensemble_p_q_51_52 - 7864
+Ensemble(y) - Weighted Ensemble_p_q_51_52 - 7868
+Ensemble(z) - Softmax_Weighted_Ensemble_p_q_51_52 - 7867
+Ensemble - Ensemble_x_y_p_q_51_52 - 7865
+Ensemble - Weighted_Ensemble_x_y_p_q_51_52 - 7868
+
+55.  Included Months, removed Random Dates- NSVM - 7833
+56.  Included Months, removed Random Dates- GBR - 7737
+
+57. Included Wk_day - XGB Finetuned - 7803
+58. Included Wk-day - SVM - 7875
+59. Included Wk-day - AutoML - 7822
+
+Ensemble - Ensemble_p_q_52_55_57_58_59 - 7884
+Ensemble - Ensemble_p_q_57_58_59 - 7879
+Ensemble - Ensemble_x_55_57_58_59 - 7885
+
+60. Included Wk_day and Yr_wk + PCA(100) - XGB - 6825
+61. Included Wk_day and Yr_wk + PCA(100) - SVM -  6561
+62. Included Wk_day and Yr_wk - AutoML- 7857 
+
+Ensemble - Ensemble_x_y_58_62 - 7895 (FINAL RESULT)
+Ensemble - Ensemble_p_q_52_55_57_58_59_62 - 7887
+
+Didn't experiment much with feature selection and dimensionality reduction. To be kept in mind in the next hackathon.
